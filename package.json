@@ -1,0 +1,36 @@
+{
+  "name": "react-app-rewire-antd-theme",
+  "version": "1.0.3",
+  "description": "This package is to setup Ant Design custom and live/dynamic theme with React App(create-react-app)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "antd",
+    "theme",
+    "creaet-react-app",
+    "react-app-rewired",
+    "react-app-rewired-less",
+    "less",
+    "dynamic-theme"
+  ],
+  "author": {
+    "name": "mzohaibqc",
+    "url": "https://github.com/mzohaibqc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mzohaibqc/react-app-rewire-antd-theme"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "less-bundle-promise": "1.0.4",
+    "post-compile-webpack-plugin": "^0.1.2",
+    "react-app-rewire-less": "^2.1.1",
+    "react-app-rewired": "^1.5.0"
+  },
+  "dependencies": {
+    "antd": "^3.4.1"
+  }
+}
