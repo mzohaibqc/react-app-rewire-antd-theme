@@ -1,39 +1,15 @@
 # create-react-rewire-antd-theme
 
-This package is mainly to generate a `color.less` file which can be used to update color specific theme variables 
+This package is mainly to integrate Ant Design with create-react-app but by adding some extra options/parameters, it will generate `color.less` file  which can be used to update color specific theme variables 
 at runtime in browser or one can apply theme based on saved color configurations. 
 
-But this package can be used just to setup Ant Design (antd) with `create-react-app` project.
+Live Theme Demo: https://antd-live-theme.firebaseapp.com/
 
-You simply need to install this package and add a `config-overrides.js` file in project's root directory.
+Here is a sample project https://github.com/mzohaibqc/antd-live-theme
 
-Live Theme Demo: https://mzohaibqc.github.io/antd-live-theme/
 
-Add following code in above file
-
-```js
-const path = require('path');
-const { updateConfig } = require('react-app-rewire-antd-theme');
-
-const options = {
-  varFile: path.join(__dirname, './src/styles/variables.less'),
-  stylesDir: path.join(__dirname, './src/styles'),
-  antDir: path.join(__dirname, './node_modules/antd'),
-  // colorFilePath: path.join(__dirname, './public/color.less'),
-  themeVariables: ['@primary-color', '@secondry-color', '@text-color-secondary']
-}
-module.exports = function override(config, env) {
-  config = updateConfig(config, env, options)
-  return config;
-};
-```
-
-Default paths for various files are as in above code snippet but you can override by passing your own values.
-`themeVariables` is required field (if you want to generate color.less file for Dynamic theme) and it's an array of color variable names that you want to configure for Dynamic theme e.g. ['@primary-color', '@secondry-color']
-Here are two color specified in array. First one is Ant Design specific and other is our custom one. You can use only Ant Design color variables or just only your own or both as you can see in example.
-
-In order to just integrate Ant Design with react project, just provide `varFile` path or `vars` object.
-
+For just Ant Design Integration with create-react-app, just add a file `config-overrides.js` in root directory
+and add following code in it. You either need to provide `variables` less file or variables object.
 ```js
 const path = require('path');
 const { updateConfig } = require('react-app-rewire-antd-theme');
@@ -41,17 +17,49 @@ const { updateConfig } = require('react-app-rewire-antd-theme');
 const options = {
   varFile: path.join(__dirname, './src/styles/variables.less')
 }
-// Or
-// const options = {
-//   vars: {
-//     '@primary-color': '#ff0000'
-//   }
-// }
 module.exports = function override(config, env) {
   config = updateConfig(config, env, options)
   return config;
 };
 ```
+Or you can pass your Ant variables as object which you want to override.
+```js
+const path = require('path');
+const { updateConfig } = require('react-app-rewire-antd-theme');
+
+const options = {
+  vars: {
+    '@primary-color': '#0035f3'
+  }
+}
+module.exports = function override(config, env) {
+  config = updateConfig(config, env, options)
+  return config;
+};
+```
+
+But if you want to use live/dynamic theming functionality, add following options
+```js
+const path = require('path');
+const { updateConfig } = require('react-app-rewire-antd-theme');
+
+const options = {
+  stylesDir: path.join(__dirname, './src/styles'),
+  antDir: path.join(__dirname, './node_modules/antd'),
+  varFile: path.join(__dirname, './src/styles/variables.less'),
+  mainLessFile: path.join(__dirname, './src/styles/index.less'),
+  themeVariables: ['@primary-color'],
+  indexFileName: 'index.html'
+}
+module.exports = function override(config, env) {
+  config = updateConfig(config, env, options)
+  return config;
+};
+```
+
+Default paths for various files are as in above snippet but you can override by passing your own values.
+`themeVariables` is required field (if you want to generate color.less file for Dynamic theme) and it's an array of color variable names that you want to configure for Dynamic theme e.g. ['@primary-color', '@secondry-color']
+Here are two color specified in array. First one is Ant Design specific and other is our custom one. You can use Ant Design color variables as well as your own custom variables as in above example.
 
 # Utilities
 - getLessVars(filePath)
