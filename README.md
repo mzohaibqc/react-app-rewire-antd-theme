@@ -49,7 +49,8 @@ const options = {
   varFile: path.join(__dirname, './src/styles/variables.less'),
   mainLessFile: path.join(__dirname, './src/styles/index.less'),
   themeVariables: ['@primary-color'],
-  indexFileName: 'index.html'
+  indexFileName: 'index.html',
+  generateOnce: false
 }
 module.exports = function override(config, env) {
   config = updateConfig(config, env, options)
@@ -60,6 +61,9 @@ module.exports = function override(config, env) {
 Default paths for various files are as in above snippet but you can override by passing your own values.
 `themeVariables` is required field (if you want to generate color.less file for Dynamic theme) and it's an array of color variable names that you want to configure for Dynamic theme e.g. ['@primary-color', '@secondry-color']
 Here are two color specified in array. First one is Ant Design specific and other is our custom one. You can use Ant Design color variables as well as your own custom variables as in above example.
+
+## Note: generateOnce: false
+By default this option is set as `false` which means that on each compilation, `color.less` file will be generated for dynamic theming but if you want you make your build/compilation process fast, you can disable `color.less` file generation on each compilation by setting this parameter to `true`and it will only be generated on first compilation/build. But if you have changes in your styles/less then you need to restart your compilation process `npm start` to generate `color.less` with updated changes.
 
 # Utilities
 - getLessVars(filePath)
