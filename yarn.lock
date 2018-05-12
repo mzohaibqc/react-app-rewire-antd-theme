@@ -15,19 +15,19 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-antd-theme-generator@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/antd-theme-generator/-/antd-theme-generator-1.0.1.tgz#7451c527c953b6d23dd49c1bee29fd2f01ab2a7a"
+antd-theme-generator@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/antd-theme-generator/-/antd-theme-generator-1.0.3.tgz#2a5f294d16453503b84628b6969ed0f4789ef90e"
   dependencies:
     less "^3.0.1"
     less-bundle-promise "1.0.4"
     postcss "^6.0.21"
 
-antd-theme-webpack-plugin@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/antd-theme-webpack-plugin/-/antd-theme-webpack-plugin-1.1.0.tgz#cbcb6ba907175966bcde3827a8a01c4d17a039f2"
+antd-theme-webpack-plugin@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/antd-theme-webpack-plugin/-/antd-theme-webpack-plugin-1.1.2.tgz#321250becf66c5a976cd1c2bd946282fb03d7913"
   dependencies:
-    antd-theme-generator "^1.0.1"
+    antd-theme-generator "1.0.3"
     less "^3.0.1"
     less-bundle-promise "1.0.4"
     postcss "^6.0.21"
