@@ -50,7 +50,8 @@ const options = {
   mainLessFile: path.join(__dirname, './src/styles/index.less'),
   themeVariables: ['@primary-color'],
   indexFileName: 'index.html',
-  generateOnce: false
+  generateOnce: false,
+  publicPath: '' // e.g. in case you are hosting at gh-pages `https://username.github.io/project` then you can add `/project` here
 }
 module.exports = function override(config, env) {
   config = updateConfig(config, env, options)
