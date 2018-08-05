@@ -32,7 +32,8 @@ function updateConfig(config, env, options = {}) {
   */
   vars = Object.assign(vars, options.vars);
   config = rewireLess.withLoaderOptions({
-    modifyVars: vars
+    modifyVars: vars,
+    javascriptEnabled: true
   })(config, env);
   if (!(options.importPlugin === false)) {
     config = injectBabelPlugin(['import', { libraryName: 'antd', style: true }], config);
